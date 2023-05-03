@@ -8,13 +8,15 @@ import sys
 print("Hello what is your name? ")
 name=input()
 
-secret_number=random.randint(1, 20)
+
 
 def intro():
     print("\nWell, " + name + ", I am thinking of a number between 1 and 20")
 
 
 def guessing_game():
+    
+    secret_number=random.randint(1, 20)  # Generate random number
 
     # Ask player to guess in 6 tries
     for guesses_taken in range(1, 7):
@@ -25,19 +27,19 @@ def guessing_game():
         except:  
              print("Please enter a number greater than 1 and less than 20." )
              pass
-             guessing_game()
+             continue 
         try:
             guess = float(guess)  # Checks to see if guess is a float 
         except:
             print("Please enter a number greater than 1 and less than 20.")
             pass
-            guessing_game()
+            continue
    
         guess = int(guess)
 
         if guess < 0 or guess > 20 or guess == 'None' :
             print("Please enter a number greater than 1 and less than 20." )
-            guessing_game() 
+            continue 
         elif guess < secret_number:
             print("Your guess is too low.")
         elif guess > secret_number:
@@ -46,7 +48,7 @@ def guessing_game():
             print("Good Job, " + name + "! you guessed my number in " + str(guesses_taken) + " guesses!")
             play_again()
     else:
-        print("Nope. The number I was thinking of was " + str(secret_number))
+        print("\nNope. The number I was thinking of was " + str(secret_number))
         
 
     # Ask player if they want to play again
