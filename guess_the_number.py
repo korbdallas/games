@@ -17,8 +17,9 @@ def guessing_game():
     for guesses_taken in range(1, 7):
         print("\nTake a guess")
         guess=int(input())
-        if guess < 0 or guess > 20:
-            sys.exit("Please enter a number greater than 1 and less than 20." )
+        if guess < 0 or guess > 20 or guess == '':
+            print("Please enter a number greater than 1 and less than 20." )
+            guessing_game 
         if guess < secret_number:
             print("Your guess is too low.")
         elif guess > secret_number:
@@ -34,7 +35,11 @@ def guessing_game():
 guessing_game()
 
 play_again = str(input("\nDo you want to play again (type yes or no): " ))
-if play_again == "yes":
+if play_again.lower() == 'yes':
     guessing_game()
-else:
+if play_again.lower() == 'no':
+    print("good bye, " + name + "! Hope you had fun")  
+    sys.exit(0)
+if play_again.lower() != 'yes' or play_again.islower() != "no":
+    print("Not a valid response. Good bye, " + name + "!" )
     sys.exit(0)
