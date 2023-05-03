@@ -40,6 +40,6 @@ if play_again.lower() == 'yes':
 if play_again.lower() == 'no':
     print("good bye, " + name + "! Hope you had fun")  
     sys.exit(0)
-if play_again.lower() != 'yes' or play_again.islower() != "no":
+else:
     print("Not a valid response. Good bye, " + name + "!" )
     sys.exit(0)
